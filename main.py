@@ -12,13 +12,14 @@ for index, row in df.iterrows():
         pdf.set_font(family="Times", size=8, style="I")
         pdf.set_text_color(180, 180, 180)
         pdf.cell(w=0, h=12, align="R", txt=row["Topic"])
+        for dst in range(21, 291, 10):
+            pdf.line(10, dst, 200, dst)
+
         # Set the footer
         if num == 0:
             pdf.ln(-270)
             pdf.set_font(family="Times", size=24, style="B")
             pdf.set_text_color(100, 100, 100)
             pdf.cell(w=0, h=12, align="L", txt=row["Topic"])
-            pdf.line(10, 21, 200, 21)
-
 
 pdf.output("output.pdf")
